@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Rapport Mission 3</title>
+</head>
+
+<body>
+<header id="header">
+    <h1>Rapport de la Mission 3</h1>
+    <nav>
+        <label for="toggle">☰</label>
+        <input type="checkbox" id="toggle">
+        <div class="menu">
+            <a href="index.html" class="nav-button">Accueil</a>
+            <a href="mission1.html" class="nav-button">Mission 1</a>
+            <a href="mission2.html" class="nav-button">Mission 2</a>
+            <a href="conception.html" class ="nav-button">Conclusion</a>
+        </div>
+    </nav>
+</header>
+
+<section id="contexte3">
+    <h2>Contexte de la mission</h2>
+    <p>
+        La Mission 3 consiste à effectuer une analyse approfondie des données de l’entreprise KDou en utilisant le langage SQL.
+        L’objectif est d’extraire des indicateurs clés pour mieux comprendre les tendances de ventes et l’impact des produits.
+        Ces analyses fournissent des informations stratégiques sur les produits, la clientèle, et l’offre.
+    </p>
+</section>
+
+<section id="indicateurs">
+    <h2>Présentation des indicateurs</h2>
+
+    <h3>1. Desserts / Boissons</h3>
+    <p>
+        <u><b>Indicateur 1 :</b></u> Nombre de desserts et boissons vendus à plus de 50€
+        <br>
+        <u><b>Résultat :</b></u> Liste des desserts et boissons premium, incluant nom, catégorie et prix.
+    </p>
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT nom_produit, categorie, prix<br>
+            FROM produits<br>
+            WHERE categorie IN ('Desserts', 'Boissons') AND prix > 50;
+        </p>
+    </section>
+
+    <p>
+        <u><b>Indicateur 2 :</b></u> Chiffre d’affaires généré par les desserts et boissons
+        <br>
+        <u><b>Résultat :</b></u> Tableau comparatif du chiffre d'affaires entre les deux catégories.
+    </p>
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT categorie, SUM(prix * quantite) AS chiffre_affaires<br>
+            FROM produit<br>
+            JOIN ventes ON produit.RefProd = DetailCommande.RefProd<br>
+            WHERE categorie IN ('Desserts', 'Boissons')<br>
+            GROUP BY categorie;
+        </p>
+    </section>
+
+    <h3>2. Offre de KDou</h3>
+    <p>
+        <u><b>Indicateur 1 :</b></u> Produits non commandés par catégorie
+        <br>
+        <u><b>Résultat :</b></u> Liste des produits non commandés groupés par catégorie.
+    </p>
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT categorie, Produit.NomProd<br>
+            FROM produit<br>
+            WHERE Produit.RefProd NOT IN (SELECT RefProd FROM DetailCommande);
+        </p>
+    </section>
+
+    <p>
+        <u><b>Indicateur 2 :</b></u> Nombre de produits par catégorie
+        <br>
+        <u><b>Résultat :</b></u> Nombre total de produits disponibles dans chaque catégorie.
+    </p>
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT categorie, COUNT(*) AS nombre_produits<br>
+            FROM produit<br>
+            GROUP BY categorie;
+        </p>
+    </section>
+
+    <h3>3. Provenance des Produits</h3>
+    <p>
+        <u><b>Indicateur 1 :</b></u> Produits importés d’Italie et d’Allemagne sous 50€
+        <br>
+        <u><b>Résultat :</b></u> Liste des produits abordables provenant d'Italie et d'Allemagne, avec leurs prix.
+    </p>
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT Produit.NomProd, Fournisseur.Pays, Produit.PrixUnit<br>
+            FROM produit<br>
+            WHERE Fournisseur.Pays IN ('Italie', 'Allemagne') AND prix < 50;
+        </p>
+    </section>
+
+    <p>
+        <u><b>Indicateur 2 :</b></u> Nombre de produits par pays d’origine
+        <br>
+        <u><b>Résultat :</b></u> Nombre total de produits par pays.
+    </p>
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT Fournisseur.Pays, COUNT(*) AS DetailCommande.QteCom<br>
+            FROM produit<br>
+            GROUP BY Fournisseur.Pays;
+        </p>
+    </section>
+
+    <h3>4. Clientèle</h3>
+    <p>
+        <u><b>Indicateur 1 :</b></u> Clients ayant passé le plus de commandes
+        <br>
+        <u><b>Résultat :</b></u> Liste des 10 clients les plus fidèles.
+    </p>
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT Client.ContactCli, COUNT(*) AS nombre_commandes<br>
+            FROM commande<br>
+            GROUP BY Client.ContactCli<br>
+            ORDER BY nombre_commandes DESC<br>
+        </p>
+    </section>
+
+    <p>
+        <u><b>Indicateur 2 :</b></u> Chiffre d’affaires par client
+        <br>
+        <u><b>Résultat :</b></u> Tableau des clients les plus rentables.
+    </p>
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT Client.ContactCli, SUM(prix * quantite) AS chiffre_affaires<br>
+            FROM Commande<br>
+            JOIN clients ON Commande.CodeCli = Client.CodeCli<br>
+            GROUP BY Client.ContactCli<br>
+            ORDER BY chiffre_affaires DESC;
+        </p>
+    </section>
+</section>
+
+<section id="conclusion">
+    <h2>Conclusion</h2>
+    <p>
+        Cette mission a fourni des analyses approfondies pour optimiser l’offre et les stratégies de KDou,
+        tout en renforçant la relation client et la gestion des stocks. Les données extraites constituent une base stratégique solide.
+    </p>
+</section>
+
+<footer>
+    <p>Pour toute question ou remarque, vous pouvez nous contacter :<br>
+        abdellah.ouzidouh@etu.u-paris.fr <br>
+        khalile.nemra@etu.u-paris.fr<br>
+        ilies.abou-el-kacem@etu.u-paris.fr<br>
+        paul.aernout@etu.u-paris.fr<br>
+    </p>
+    <p id="copyright">
+        © 2024 Compte Rendu SAE 1.04 Groupe 11C. Tous droits réservés.
+    </p>
+</footer>
+
+</body>

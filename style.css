@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #b0c4de;
+    color: black;
+    padding-top: 100px;
+}
+
+label, #toggle {
+    display: none;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: royalblue;
+    padding: 40px 0;
+    box-shadow:  4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 1000;
+    }
+
+
+.nav-button {
+    text-decoration: none;
+    color: white;
+    background-color: cornflowerblue;
+    padding: 10px 20px;
+    margin: 0 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s;
+}
+
+.nav-button:hover {
+    background-color: lightskyblue;
+}
+
+section{
+    margin: 20px;
+}
+
+h1 {
+    background-color: #b0c4de;
+    color: dodgerblue;
+    padding: 20px;
+    text-align: center;
+    text-decoration: underline;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    width: 60%;
+}
+
+h2 {
+    color: #4A90E2;
+    text-decoration: underline;
+    display: flex;
+    justify-content: center;
+}
+
+h3 {
+    color: steelblue;
+    text-decoration: underline;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+}
+
+h4{
+    text-decoration: underline;
+}
+
+.codesql{
+    padding: 10px;
+    border: 1px black solid;
+    width: 50%;
+}
+
+.codesql p{
+    font-family: monospace;
+
+}
+
+.list-container {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: circle;
+    padding-left: 20px;
+}
+li {
+    margin: 5px 0;
+}
+
+table, td, th{
+    border: solid black 2px;
+}
+
+table{
+
+}
+
+th{
+    background-color: papayawhip;
+}
+
+footer{
+    padding: 7px;
+    color: white;
+    background-color: darkslateblue;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+
+}
+
+
+
+#copyright{
+    text-align: right;
+}
+@media screen and (max-width: 992px) {
+    nav{
+        height: 60px;
+    }
+
+    label{
+        margin : 0 auto ;
+        font-size : 40px ;
+        color : white;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .menu a {
+        width: 75%;
+    }
+
+    #toggle:checked + .menu{
+        display: flex;
+        flex-direction: column;
+        background-color: royalblue;
+        height: 240px;
+    }
+}

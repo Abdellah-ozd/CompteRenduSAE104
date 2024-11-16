@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Rapport Mission 2</title>
+</head>
+
+<body>
+<header id="header">
+    <h1>Rapport de la Mission 2</h1>
+    <nav>
+        <label for="toggle">☰</label>
+        <input type="checkbox" id="toggle">
+        <div class="menu">
+            <a href="index.html" class="nav-button">Accueil</a>
+            <a href="mission1.html" class="nav-button">Mission 1</a>
+            <a href="mission3.html" class="nav-button">Mission 3</a>
+            <a href="conception.html" class ="nav-button">Conclusion</a>
+        </div>
+    </nav>
+</header>
+
+<section id="contexte2">
+    <h2>Contexte de la mission</h2>
+    <p>
+        La Mission 2 avait pour objectif d'exploiter la base de données KDou via une interface low code.
+        Nous avons mené une série d’analyses pour répondre à des questions précises sur les fournisseurs, les produits, et les clients de KDou.
+        Cela a permis de mieux comprendre les données disponibles et d'identifier des éléments clés pour l’optimisation de la gestion commerciale.
+    </p>
+</section>
+
+<section id="indicateurs">
+    <h2>Présentation des indicateurs</h2>
+
+    <h3>1.Produits vendus à moins de 50€</h3>
+    <p>
+        <u><b>Enoncé</b></u> : Question c) lister les produits d'origine italienne ou allemande vendus à 50€ ou moins.
+        <br>
+        <u><b>Interprétation</b></u> : Cet indicateur permet de visualiser les produits importés les plus abordables, ce qui est utile pour des analyses tarifaires.
+    </p>
+    <caption><b><u>Résultat extrait:</u></b></caption>
+    <table>
+        <thead>
+        <tr>
+            <th>Nom Produit</th>
+            <th>Prix Produit</th>
+            <th>Nom Fournisseur</th>
+            <th>Ville Fournisseur</th>
+            <th>Pays Origine</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Rössle Sauerkraut</td>
+            <td>38,00 €</td>
+            <td>Plusspar Lebensmittelgroßmärkte AG</td>
+            <td>Frankfurt</td>
+            <td>Allemagne</td>
+        </tr>
+        <tr>
+            <td>Schoggi Schokolade</td>
+            <td>36,5833 €</td>
+            <td>Heli Süßwaren GmbH & Co. KG</td>
+            <td>Berlin</td>
+            <td>Allemagne</td>
+        </tr>
+        <tr>
+            <td>Gnocchi di nonna Alice</td>
+            <td>31,6667 €</td>
+            <td>Pasta Buttini s.r.l.</td>
+            <td>Salerno</td>
+            <td>Italie</td>
+        </tr>
+        <tr>
+            <td>Mozzarella di Giovanni</td>
+            <td>29,00 €</td>
+            <td>Formaggi Fortini s.r.l.</td>
+            <td>Ravenna</td>
+            <td>Italie</td>
+        </tr>
+        <tr>
+            <td>Wimmers gute Semmelknödel</td>
+            <td>27,7083 €</td>
+            <td>Plusspar Lebensmittelgroßmärkte AG</td>
+            <td>Frankfurt</td>
+            <td>Allemagne</td>
+        </tr>
+        <tr>
+            <td>Mascarpone Fabioli</td>
+            <td>26,6667 €</td>
+            <td>Formaggi Fortini s.r.l.</td>
+            <td>Ravenna</td>
+            <td>Italie</td>
+        </tr>
+        <tr>
+            <td>Gumbär Gummibärchen</td>
+            <td>26,025 €</td>
+            <td>Heli Süßwaren GmbH & Co. KG</td>
+            <td>Berlin</td>
+            <td>Allemagne</td>
+        </tr>
+        <tr>
+            <td>Nord-Ost Matjeshering</td>
+            <td>21,575 €</td>
+            <td>Nord-Ost-Fisch Handelsgesellschaft mbH</td>
+            <td>Cuxhaven</td>
+            <td>Allemagne</td>
+        </tr>
+        <tr>
+            <td>Gustaf's Knäckebröd</td>
+            <td>17,50 €</td>
+            <td>Plusspar Lebensmittelgroßmärkte AG</td>
+            <td>Frankfurt</td>
+            <td>Allemagne</td>
+        </tr>
+        <tr>
+            <td>Ravioli Angelo</td>
+            <td>16,25 €</td>
+            <td>Pasta Buttini s.r.l.</td>
+            <td>Salerno</td>
+            <td>Italie</td>
+        </tr>
+        <tr>
+            <td>NuNuCa Nuß-Nougat-Creme</td>
+            <td>11,6667 €</td>
+            <td>Heli Süßwaren GmbH & Co. KG</td>
+            <td>Berlin</td>
+            <td>Allemagne</td>
+        </tr>
+        <tr>
+            <td>Singaporean Hokkien Fried Mee</td>
+            <td>11,6667 €</td>
+            <td>Nord-Ost-Fisch Handelsgesellschaft mbH</td>
+            <td>Cuxhaven</td>
+            <td>Allemagne</td>
+        </tr>
+        <tr>
+            <td>Original Frankfurter grüne Soße</td>
+            <td>10,8333 €</td>
+            <td>Plusspar Lebensmittelgroßmärkte AG</td>
+            <td>Frankfurt</td>
+            <td>Allemagne</td>
+        </tr>
+        <tr>
+            <td>Gorgonzola Telino</td>
+            <td>10,4167 €</td>
+            <td>Formaggi Fortini s.r.l.</td>
+            <td>Ravenna</td>
+            <td>Italie</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT Fournisseur.Pays, Produit.PrixUnit, Fournisseur.Ville, Fournisseur.Societe <br>
+            FROM Fournisseur <br>
+            INNER JOIN Produit ON Fournisseur.NoFour = Produit.NoFour <br>
+            WHERE Fournisseur.Pays IN ('Allemagne', 'Italie') <br>
+            AND Produit.PrixUnit <= 50 <br>
+            ORDER BY Produit.PrixUnit;
+        </p>
+    </section>
+
+    <h3>2.Clients nantais</h3>
+        <p>
+            <u><b>Enoncé:</b></u> Question f) dénombre les clients situés à Nantes.
+            <br>
+            <u><b>Interprétation:</b></u>Cet indicateur permet de connaître la répartition géographique des clients pour des analyses ciblées par région.
+            <br>
+            <u><b>Résultat extrait: Il y a 3 clients nantais</b></u>
+        </p>
+
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+            SELECT Nom, Prenom <br>
+            FROM Client <br>
+            WHERE Ville = "Nantes"
+        </p>
+    </section>
+
+    <h3>3. Offre de produits suédois</h3>
+    <p>
+        <u><b>Enoncé:</b></u> Question g) lister les produits d'origine suédoise.
+        <br>
+        <u><b>Interprétation:</b></u>: Permet de visualiser l'offre en provenance de Suède, intéressante pour analyser la diversité et l’origine des produits.
+    </p>
+    <caption><u><b>Résultat extrait:</b></u></caption>
+    <table>
+        <thead>
+        <tr>
+            <th>NomProd</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Dea Surströmming</td>
+        </tr>
+        <tr>
+            <td>Gravad lax</td>
+        </tr>
+        <tr>
+            <td>Inlagd Sill</td>
+        </tr>
+        <tr>
+            <td>Kanelbullar Stock</td>
+        </tr>
+        <tr>
+            <td>knäckebrod Kala</td>
+        </tr>
+        <tr>
+            <td>Röd Kaviar</td>
+        </tr>
+        <tr>
+            <td>Tunnbröd</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <section class="codesql">
+    <p>
+        SELECT P.NomProd<br>
+        FROM Produit P INNER JOIN Fournisseur F ON P.NoFour = F.NoFour <br>
+        WHERE F.Pays IN ("Suéde", "Suède") <br>
+        ORDER BY 1
+    </p>
+    </section>
+
+    <h3>4. Prix moyen, minimum et maximum des produits</h3>
+    <p>
+        <u><b>Enoncé:</b></u>Question j) calculer la moyenne, le prix minimum et le prix maximum des produits.
+        <br>
+        <u><b>Interprétation:</b></u>Cet indicateur fournit une analyse de la gamme de prix des produits, utile pour les décisions de tarification.
+    </p>
+
+    <caption><u><b>Résultat extrait:</b></u></caption>
+    <table>
+        <thead>
+        <tr>
+            <th>Prix Min</th>
+            <th>Prix Max</th>
+            <th>Prix Moyen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2,08 €</td>
+            <td>320,00 €</td>
+            <td>33,5361 €</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <section class="codesql">
+        <h4>Code SQL utilisé</h4>
+        <p>
+        SELECT AVG(Produit.PrixUnit) AS MoyenneDePrixUnit,<br>
+        MIN(Produit.PrixUnit) AS MinDePrixUnit,<br>
+        MAX(Produit.PrixUnit) AS MaxDePrixUnit <br>
+        FROM Produit;
+        </p>
+    </section>
+</section>
+
+<section id="conclusion">
+    <h2>Conclusion</h2>
+    <p>
+        Cette mission a permis de structurer et d'interpréter des données essentielles pour KDou, en fournissant des informations exploitables sur les produits, les clients, et les fournisseurs. Grâce aux requêtes SQL et à l’interface low code, nous avons pu extraire des indicateurs clés qui aideront KDou à optimiser sa gestion des stocks, affiner son offre, et mieux comprendre sa clientèle.
+        Ces résultats posent des bases solides pour des décisions stratégiques éclairées et le développement futur de l’entreprise.
+    </p>
+</section>
+
+<footer>
+    <p>Pour toute question ou remarque, vous pouvez nous contacter :<br>
+        abdellah.ouzidouh@etu.u-paris.fr <br>
+        khalile.nemra@etu.u-paris.fr<br>
+        ilies.abou-el-kacem@etu.u-paris.fr<br>
+        paul.aernout@etu.u-paris.fr<br>
+    </p>
+    <p id="copyright">
+        © 2024 Compte Rendu SAE 1.04 Groupe 11C. Tous droits réservés.
+    </p>
+</footer>
+
+</body>

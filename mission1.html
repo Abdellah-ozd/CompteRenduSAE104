@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <title>Rapport Mission 1</title>
+</head>
+
+<body>
+<header id="header">
+    <h1>Rapport de la Mission 1</h1>
+    <nav>
+        <label for="toggle">☰</label>
+        <input type="checkbox" id="toggle">
+        <div class="menu">
+            <a href="index.html" class="nav-button">Accueil</a>
+            <a href="mission2.html" class="nav-button">Mission 2</a>
+            <a href="mission3.html" class="nav-button">Mission 3</a>
+            <a href="conception.html" class ="nav-button">Conclusion</a>
+        </div>
+    </nav>
+</header>
+
+<section id="contexte1">
+    <h2>Contexte de la mission</h2>
+    <p>Dans cette première mission, nous avons été introduit à l'entreprise Kdou
+        ainsi que son contexte économique et ses objectifs. Il nous a été fourni un classeur Excel représentant la
+        base de données afin de nous initier à la gestion de données, ainsi, une feuille de données représentait une table de la base de données.
+
+    </p>
+</section>
+
+<section id="bilan">
+    <h2>Bilan sur l'étude des données</h2>
+    <p>
+        Les questions lors de cette première mission nous demandait dans un premier temps d'analyser les feuilles afin
+        de comprendre le fonctionnement et la logique derrière cette base de données.
+        Dans un second temps, il nous a été demandé d'obtenir des données en lien avec touts les aspects de l'entreprise, allant
+        du nombre de clients d'une certaine zone géographique aux produits commandés par un certain client.
+        <br>
+        Nous avons donc analysé les tableaux fournis (Fournisseurs, Produits, Catégories, Clientèle, Commandes, DétailCommande)
+        pour identifier les clés primaires et étrangères, répondre aux questions de base, et identifier les incohérences.
+    </p>
+
+    <section id="clesP_clesE">
+    <h3>1. Identification des Clés Primaires et Étrangères</h3>
+    <p>Nous avons commencé par analyser les feuilles afin d'identifier les attributs pouvant être des clés
+    primaires et des clés étrangéres. Ainsi, nous avons recherché les attributs respectant les contraintes d'intégrités</p>
+    <div class="listcontainer">
+    <h4>Clés Primaires:</h4>
+        <ul>
+            <li>Fournisseur : N° Fournisseur</li>
+            <li>Produit : Réf Produit</li>
+            <li>Catégorie : Code catégorie</li>
+            <li>Clientèle : Code client</li>
+            <li>Commande : N° Commande</li>
+            <li>DétailCommande : Pas de clé primaire unique, car aucune colonne ne remplit les conditions d'intégrité.</li>
+        </ul>
+    </div>
+
+    <div class="list-container">
+        <h4>Clés Étrangères:</h4>
+        <ul>
+            <li>Produit : N° Fournisseur (référence à Fournisseur) et Code catégorie (référence à Catégorie).</li>
+            <li>Commande : Code client (référence à Clientèle).</li>
+            <li>DétailCommande : Réf produit (référence à Produit) et N° Commande (référence à Commande).</li>
+        </ul>
+    </div>
+    </section>
+
+    <section id="questions-analytique">
+        <h3>2. Exploration des données</h3>
+
+        <h4>Réponses aux Questions Analytiques pour Vérifier la Cohérence des Données</h4>
+        <div class="list-container">
+            <ul>
+                <li>Clients nantais : 3 clients (Pedro Afonso et Sven Ottlieb, ce dernier apparaissant deux fois).</li>
+                <li>Clients en région parisienne : 5 clients (par ex., Alyssa Duranta à Paris 13e).</li>
+                <li>Adresse de Marie Delamare : 22 rue H. Voiron, Montceau (71300).</li>
+                <li>Fournisseurs en Amérique du Nord : 7, dont des fournisseurs aux États-Unis et au Canada.</li>
+                <li>Pays de l'UE autres que la France : 8 pays (Espagne, Allemagne, Suède, etc.).</li>
+                <li>Fonction du contact pour « Ma maison » : Directeur du marketing.</li>
+                <li>Fonction la plus représentée : Représentant(e).</li>
+                <li>Produits commandés par Mikal Pavbo : Divers articles comme Aniseed Syrup et Boston Crab Meat.</li>
+                <li>Dates de commandes de MORIU : Aucun client MORIU, mais un client MORJU a des commandes (ex. : 03/12/2020).</li>
+                <li>Produits suédois : Tunnbröd, Inlagd Sill, etc.</li>
+                <li>Catégories de fournisseurs singapouriens : Condiments et boissons.</li>
+                <li>Clients sans commande : 5 clients, comme Isra Dubois.</li>
+                <li>Conditionnement des produits : Boîtes, pots, sacs, palettes, bouteilles, paquets.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="incoherences">
+        <h4>Incohérences observées</h4>
+        <div class="list-container">
+            <ul>
+                <li>Variations dans les Noms de Pays et Villes : Incohérences comme « USA » et « États-Unis », ou deux orthographes de São Paulo.</li>
+                <li>Structure des Tables : L'absence de clés étrangères limite la cohérence entre les tables, surtout entre DétailCommande et Commande.</li>
+            </ul>
+        </div>
+    </section>
+</section>
+
+<section id="persp">
+    <h2>Perspective d’amélioration</h2>
+    <h4>1. Normalisation des noms de Pays et Villes</h4>
+    <ul>
+        <li>Uniformiser les noms pour éviter les doublons et garantir une analyse fiable. Ci-dessous, l'on peut observer que un même pays est écrit de différentes façon </li>
+        <img src="screenshotmission1persp1.png" alt="extrait de la table Fournisseur">
+        <img src="screenshotmission1persp2.png" alt="extrait de la table Fournisseur">
+
+        <li>Utiliser des conventions de nommage uniques pour faciliter les recherches.</li>
+    </ul>
+
+    <h4>2. Migration vers une Base de Données Relationnelle</h4>
+    <ul>
+        <li>Transférer les données dans une base de données relationnelle comme Microsoft Access ou MySQL pour mieux gérer les relations entre les tables.</li>
+        <li>Configurer des clés primaires et étrangères pour maintenir l'intégrité du référentiel.</li>
+    </ul>
+
+    <h4>3. Réorganisation des Codes Clients</h4>
+    <ul>
+        <li>Structurer les codes clients de manière logique (par ordre croissant ou par catégorie) pour faciliter la gestion.</li>
+    </ul>
+
+    <h4>4.	Optimisation des Tables</h4>
+    <ul>
+        <li>La table <i><b>DétailCommande</b></i> pourrait bénéficier d'une clé primaire composite
+            (par ex., <i>Réf produit</i> et <i>N° Commande</i>) pour assurer l'unicité.</li>
+    </ul>
+</section>
+
+<section id="conclusion">
+    <h2>Conclusion</h2>
+    <p>
+        Cette mission a permis de lever des incohérences et de proposer des axes d'amélioration pour une
+        meilleure gestion des données. En standardisant les noms, en migrant vers une base de données relationnelle,
+        et en optimisant la structure des tables, KVous pourrez renforcer l'intégrité de ses données et obtenir des
+        informations plus fiables pour soutenir son repositionnement écoresponsable. Ces améliorations faciliteront les
+        analyses futures pour mieux répondre aux attentes des clients et renforcer l'image éco-friendly de l'entreprise.
+    </p>
+</section>
+
+<footer>
+    <p>Pour toute question ou remarque, vous pouvez nous contacter :<br>
+        abdellah.ouzidouh@etu.u-paris.fr <br>
+        khalile.nemra@etu.u-paris.fr<br>
+        ilies.abou-el-kacem@etu.u-paris.fr<br>
+        paul.aernout@etu.u-paris.fr<br>
+    </p>
+    <p id="copyright">
+        © 2024 Compte Rendu SAE 1.04 Groupe 11C. Tous droits réservés.
+    </p>
+</footer>
+
+</body>
+
+</html>
